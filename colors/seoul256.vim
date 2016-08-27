@@ -98,12 +98,13 @@ let s:light_bg_2 = min([s:light_bg + 2, 256])
 let s:dark_fg = 252
 let s:light_fg = 239
 
-function! s:hi(item, fg, bg)
+function! s:hi(item, fg, bg, ...)
   let fg = a:fg[s:style_idx] > 255 ? 231 : a:fg[s:style_idx]
   let bg = a:bg[s:style_idx] > 255 ? 231 : a:bg[s:style_idx]
+  let fg_style = a:0 > 0 ? a:1 : 'NONE'
 
   if !empty(fg)
-    execute printf("highlight %s ctermfg=%s guifg=%s", a:item, fg, get(s:rgb_map, fg, 'NONE'))
+    execute printf("highlight %s ctermfg=%s guifg=%s cterm=%s", a:item, fg, get(s:rgb_map, fg, 'NONE'), fg_style)
   endif
   if !empty(bg)
     execute printf("highlight %s ctermbg=%s guibg=%s", a:item, bg, get(s:rgb_map, bg, 'NONE'))
@@ -136,7 +137,7 @@ call s:hi('Constant', [73, 23], ['', ''])
 call s:hi('Character', [174, 168], ['', ''])
 call s:hi('Delimiter', [137, 94], ['', ''])
 call s:hi('StringDelimiter', [137, 94], ['', ''])
-call s:hi('Statement', [108, 66], ['', ''])
+call s:hi('Statement', [108, 66], ['', ''], 'bold')
 " case, default, etc.
 " hi Label ctermfg=
 
@@ -146,7 +147,7 @@ call s:hi('Conditional', [110, 31], ['', ''])
 " while end
 call s:hi('Repeat', [68, 67], ['', ''])
 call s:hi('Todo', [161, 125], [s:dark_bg_2, s:light_bg_2])
-call s:hi('Function', [187, 58], ['', ''])
+call s:hi('Function', [187, 58], ['', ''], 'bold')
 
 " Macros
 call s:hi('Define', [173, 131], ['', ''])
@@ -168,13 +169,13 @@ call s:hi('Type', [179, 94], ['', ''])
 call s:hi('Operator', [186, 131], ['', ''])
 
 " super yield
-call s:hi('Keyword', [168, 168], ['', ''])
+call s:hi('Keyword', [168, 168], ['', ''], 'bold')
 
 " raise
 call s:hi('Exception', [161, 161], ['', ''])
 "
 " hi StorageClass ctermfg=
-call s:hi('Structure', [116, 23], ['', ''])
+call s:hi('Structure', [116, 23], ['', ''], 'bold')
 " hi Typedef ctermfg=
 
 call s:hi('Error', [s:dark_fg, s:light_bg_1], [52, 174])
