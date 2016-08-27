@@ -137,7 +137,8 @@ call s:hi('Constant', [73, 23], ['', ''])
 call s:hi('Character', [174, 168], ['', ''])
 call s:hi('Delimiter', [137, 94], ['', ''])
 call s:hi('StringDelimiter', [137, 94], ['', ''])
-call s:hi('Statement', [108, 66], ['', ''], 'bold')
+"call s:hi('Statement', [108, 66], ['', ''])
+call s:hi('Statement', [131, 131], ['', ''])
 " case, default, etc.
 " hi Label ctermfg=
 
