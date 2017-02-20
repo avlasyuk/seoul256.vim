@@ -104,7 +104,7 @@ function! s:hi(item, fg, bg, ...)
   let fg_style = a:0 > 0 ? a:1 : 'NONE'
 
   if !empty(fg)
-    execute printf("highlight %s ctermfg=%s guifg=%s cterm=%s", a:item, fg, get(s:rgb_map, fg, 'NONE'), fg_style)
+    execute printf("highlight %s ctermfg=%s guifg=%s cterm=%s gui=%s", a:item, fg, get(s:rgb_map, fg, 'NONE'), fg_style, fg_style)
   endif
   if !empty(bg)
     execute printf("highlight %s ctermbg=%s guibg=%s", a:item, bg, get(s:rgb_map, bg, 'NONE'))
