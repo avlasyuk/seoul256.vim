@@ -138,7 +138,16 @@ call s:hi('Character', [174, 168], ['', ''])
 call s:hi('Delimiter', [137, 94], ['', ''])
 call s:hi('StringDelimiter', [137, 94], ['', ''])
 call s:hi('Statement', [108, 66], ['', ''])
+
 call s:hi('cppScopeOutStatement', [131, 131], ['', ''])
+
+let s:dark_fg_muted = s:dark_fg - 6
+let s:light_fg_muted = s:light_fg + 6
+call s:hi('cCustomSemicolon', [s:dark_fg_muted, s:light_fg_muted], ['', ''])
+call s:hi('cCustomParen', [s:dark_fg_muted, s:light_fg_muted], ['', ''])
+call s:hi('cCustomCurlyBrace', [s:dark_fg_muted, s:light_fg_muted], ['', ''])
+call s:hi('cCustomSquareBrace', [s:dark_fg_muted, s:light_fg_muted], ['', ''])
+
 " case, default, etc.
 " hi Label ctermfg=
 
@@ -148,7 +157,7 @@ call s:hi('Conditional', [110, 31], ['', ''])
 " while end
 call s:hi('Repeat', [68, 67], ['', ''])
 call s:hi('Todo', [161, 125], [s:dark_bg_2, s:light_bg_2])
-call s:hi('Function', [187, 58], ['', ''], 'bold')
+call s:hi('Function', [187, 58], ['', ''])
 
 " Macros
 call s:hi('Define', [173, 131], ['', ''])
@@ -170,13 +179,13 @@ call s:hi('Type', [179, 94], ['', ''])
 call s:hi('Operator', [186, 131], ['', ''])
 
 " super yield
-call s:hi('Keyword', [168, 168], ['', ''], 'bold')
+call s:hi('Keyword', [168, 168], ['', ''])
 
 " raise
 call s:hi('Exception', [161, 161], ['', ''])
 "
 " hi StorageClass ctermfg=
-call s:hi('Structure', [116, 23], ['', ''], 'bold')
+call s:hi('Structure', [116, 23], ['', ''])
 " hi Typedef ctermfg=
 
 call s:hi('Error', [s:dark_fg, s:light_bg_1], [52, 174])
@@ -292,6 +301,8 @@ hi link diffLine Constant
 
 call s:hi('Conceal', [s:dark_fg + 2, s:light_fg - 2], [s:dark_bg - 1, s:light_bg + 2])
 call s:hi('Ignore',  [s:dark_bg + 3, s:light_bg - 3], [s:dark_bg, s:light_bg])
+
+call s:hi('cCustomSquareBrace', [s:dark_fg, s:light_fg], ['', ''])
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
